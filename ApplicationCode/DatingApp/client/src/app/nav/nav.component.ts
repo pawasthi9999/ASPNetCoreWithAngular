@@ -1,18 +1,19 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AccountService } from '../_services/account.service';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 //import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [FormsModule], //, NgIf
+  imports: [FormsModule, BsDropdownModule], //, NgIf
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css'
 })
 export class NavComponent {
-  private accountService = inject(AccountService);
-  loggedIn = false;
+  accountService = inject(AccountService);
+  //loggedIn = false;
   model: any = {};
 
   login() {
@@ -20,7 +21,7 @@ export class NavComponent {
     this.accountService.login(this.model).subscribe({
       next: response => {
         console.log(response);
-        this.loggedIn = true;
+        //this.loggedIn = true;
       },
       error: error => {
         console.log(error);
@@ -29,6 +30,7 @@ export class NavComponent {
   }
 
   logout() {
-    this.loggedIn = false;
+    //this.loggedIn = false;
+    this.accountService.logout();
   }
 }
