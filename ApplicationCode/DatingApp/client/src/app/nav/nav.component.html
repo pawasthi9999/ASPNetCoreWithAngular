@@ -6,17 +6,20 @@
     </button> -->
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           @if(accountService.currentUser()) {
-            <!--*ngIf="loggedIn" this is for Angular 16 and earlier only-->
-            <li class="nav-item">
-              <a routerLink="/members" routerLinkActive="active" class="nav-link">Matches</a>
-            </li>
-            <li class="nav-item">
-              <a routerLink="/lists" routerLinkActive="active" class="nav-link">Lists</a>
-            </li>
-            <li class="nav-item">
-              <a routerLink="/messages" routerLinkActive="active" class="nav-link">Messages</a>
-            </li>
+          <!--*ngIf="loggedIn" this is for Angular 16 and earlier only-->
+          <li class="nav-item">
+            <a routerLink="/members" routerLinkActive="active" class="nav-link">Matches</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/lists" routerLinkActive="active" class="nav-link">Lists</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/messages" routerLinkActive="active" class="nav-link">Messages</a>
+          </li>
           }
+          <li class="nav-item">
+            <a routerLink="/errors" routerLinkActive="active" class="nav-link">Errors</a>
+          </li>
         </ul>
         
 

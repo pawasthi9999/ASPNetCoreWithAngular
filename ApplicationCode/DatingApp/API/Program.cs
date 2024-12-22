@@ -1,5 +1,6 @@
 //using API.Data;
 using API.Extensions;
+using API.Middleware;
 //using API.Interfaces;
 //using API.Services;
 //using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -20,6 +21,10 @@ builder.Services.AddIdentityServices(builder.Configuration);
 
 var app = builder.Build();
 
+//this is the middleware that will be used in the request pipeline to handle exceptions and return a response to the client in a consistent way during development mode only
+//app.UseDeveloperExceptionPage();
+
+
 // // Configure the HTTP request pipeline.
 // if (app.Environment.IsDevelopment())
 // {
@@ -30,6 +35,7 @@ var app = builder.Build();
 // app.UseHttpsRedirection();
 
 // app.UseAuthorization();
+app.UseMiddleware<ExceptionMiddleware>();
 app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200", "https://localhost:4200"));
 
 app.UseAuthentication();
