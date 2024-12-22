@@ -5,6 +5,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
 import { provideToastr } from 'ngx-toastr';
+
 import { withInterceptors } from '@angular/common/http';
 import { errorInterceptor } from './_interceptors/error.interceptor';
 
